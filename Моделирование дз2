@@ -19,6 +19,7 @@ class Rcs:
             return complex(scp.spherical_jn(n, x), scp.spherical_yn(n, x))
 
         f = self.fmin
+        print(self.fmin, self.fmax)
         while f <= self.fmax:
             l = 3 * 10**8 / f
             k = 2 * math.pi / l
@@ -30,7 +31,7 @@ class Rcs:
                 s += ((-1) ** n) * (n + 0.5) * (bn - an)
             self.mass_f.append(f)
             self.mass_rcs.append((l**2) * ((abs(s))**2) / math.pi)
-            f += 1_000_000
+            f += 40_000_000
 
         plt.plot(self.mass_f, self.mass_rcs)
         plt.xlabel("f, Hz")
@@ -89,3 +90,4 @@ sph.calc()
 
 o = Output(sph.mass_f, sph.mass_rcs)
 o.output()
+
