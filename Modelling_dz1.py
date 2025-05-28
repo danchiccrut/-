@@ -29,16 +29,16 @@ with open('results/result.csv', 'w', newline='', encoding='utf-8') as f:
     
     #запишем название столбцов
     writer.writerow(['X', 'Y'])
+    print(f"{'X'}{'Y':>7}")
     
     #запишем пары значений по строкам
     for x_val, y_val in zip(X, Y):
         writer.writerow([f"{x_val:.3f}", f"{y_val:.3f}"])
+        print(f"{x_val:.3f}", f"{y_val:.3f}")
 
-print(f"{'X'} {'Y'}")
 
-for x_val, y_val in zip(X, Y):
-    print(f"{x_val} {y_val}")
+
 
 f.close() 
 plt.plot(X,Y) 
-plt.show() 
+plt.show()
