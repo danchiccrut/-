@@ -300,7 +300,7 @@ def Spectrum(f_0, DeltaF, w_g, d_g):
 
     # Гауссов импульс
     time = np.arange(0, size * dt, dt)
-    gauss = np.sin(2 * np.pi * f_0 * time) * np.exp(-((time - d_g) / w_g) ** 2)
+    gauss = np.exp(-((time - d_g) / w_g) ** 2)
 
     # Расчет спектра
     spectrum = np.abs(fft(gauss))
